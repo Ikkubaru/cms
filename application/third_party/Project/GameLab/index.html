@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Akhir</title>
+</head>
+<body>
+    <script>
+        let pengunjung = [];
+        function tambahPengunjung(nama, nomorAnggota, gender){
+            pengunjung.push({nama, nomorAnggota, gender});
+            console.log("Pengunjung Berhasil Ditambahkan.")
+        }
+        function tampilPengunjung(){
+            if(pengunjung.length === 0){
+                console.log("Tidak ada Pengunjung.")
+            }else{
+                console.log("Daftar Pengunjung\n");
+                pengunjung.forEach((pengunjung, index) => {
+                    console.log(`\n${index + 1}.Nama: ${pengunjung.nama}`);
+                    console.log(`Nomor Anggota: ${pengunjung.nomorAnggota}`);
+                    console.log(`Gender ${pengunjung.gender}`);
+                });
+            }
+        }
+
+        function keluar(){
+            console.log("Program Telah Berakhir");
+            process.exit();
+        }
+
+        function tampilMenu(){
+            console.log("\n=== Menu ===");
+            console.log("1. Tambah Pengunjung");
+            console.log("2. Tampilkan Daftar Pengunjung");
+            console.log("3. Keluar Program");
+        }
+        function jalankanMenu(){
+            while (true){
+                tampilMenu();
+                const pilihan = prompt("Masukkan pilihan (1-3):");
+                switch(pilihan){
+                    case "1":
+                        const nama = prompt("Masukkan nama: ");
+                        const nomorAnggota = prompt("Masukkan nomor anggota: ");
+                        const gender = prompt("Masukkan Gender: ");
+                        tambahPengunjung(nama, nomorAnggota, gender);
+                        break;
+                    case "2":
+                        tampilPengunjung();
+                        break;
+                    case "3":
+                        keluar();
+                        break;
+                    default:
+                        console.log("Pilihan tidak valid. Coba lagi.");
+                        break;
+                }
+            }
+        }
+        jalankanMenu();
+    </script>
+</body>
+</html>
