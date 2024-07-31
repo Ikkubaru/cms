@@ -44,6 +44,8 @@ class Konten extends CI_Controller {
         } else {
             $data = array('upload_data' => $this->upload->data());
         }
+
+        
         $this->db->from('konten');
         $this->db->where('judul',$this->input->post('judul'));
         $query = $this->db->get()->result_array();
